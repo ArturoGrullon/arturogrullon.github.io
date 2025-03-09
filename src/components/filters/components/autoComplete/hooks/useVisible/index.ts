@@ -12,7 +12,8 @@ export const useVisible = <T>(
     const handleClickOutside = (event: MouseEvent) => {
       if (
         containerRef.current &&
-        !containerRef.current.contains(event.target as Node)
+        !containerRef.current.contains(event.target as Node) &&
+        isVisible
       ) {
         onBlur?.(selectedOptions);
         setIsVisible(false);
