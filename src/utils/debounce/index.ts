@@ -1,6 +1,7 @@
 import { useRef } from "react";
 
-export const useDebounce = <T extends (...args: never[]) => unknown>(
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const useDebounce = <T extends (...args: any[]) => any>(
   callback: T,
   delay = 300
 ) => {
