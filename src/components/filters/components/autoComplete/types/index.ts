@@ -1,8 +1,10 @@
 import { AutoCompleteProps } from "../../../types";
 
-export type GenerateOptionsProps<T> = {
+export type GenerateOptionsProps<T> = Pick<
+  AutoCompleteProps<T>,
+  "getValue" | "activeOptions"
+> & {
   filteredOptions: T[];
-  getValue: AutoCompleteProps<T>["getValue"];
   inputValue: string;
   handleSelectedOption: (option: T) => void;
 };

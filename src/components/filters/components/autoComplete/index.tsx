@@ -12,6 +12,7 @@ export const AutoComplete = <T = string | number,>({
   label,
   options,
   onChange,
+  activeOptions,
   onBlur,
   getValue,
 }: AutoCompleteProps<T>) => {
@@ -25,8 +26,8 @@ export const AutoComplete = <T = string | number,>({
 
   const filteredOptions = getFilteredOptions(options, inputValue, getValue);
   const filteredOptionsCount = filteredOptions.length;
-  const debounceDelay = 500;
 
+  const debounceDelay = 500;
   const debounceHandleInputValue = useDebounce(handleInputValue, debounceDelay);
 
   return (
@@ -35,6 +36,8 @@ export const AutoComplete = <T = string | number,>({
         {label}:
       </label>
       <Input
+        id={label}
+        name={label}
         onClick={handleSetVisible}
         type="search"
         onChange={({ target: { value } }) => debounceHandleInputValue(value)}
@@ -48,6 +51,7 @@ export const AutoComplete = <T = string | number,>({
               getValue,
               filteredOptions,
               inputValue,
+              activeOptions,
               handleSelectedOption,
             }}
           />

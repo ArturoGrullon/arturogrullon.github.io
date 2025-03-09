@@ -1,6 +1,7 @@
 type AutoComplete<T = string | number> = {
   label: string;
   options: T[];
+  activeOptions?: T[];
   onChange?: (options: T[]) => void;
   onBlur?: (options: T[]) => void;
   getValue: (value: T) => string;
