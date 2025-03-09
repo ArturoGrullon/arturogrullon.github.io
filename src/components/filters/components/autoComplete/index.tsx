@@ -1,6 +1,6 @@
 import { Card, Input } from "pixel-retroui";
 import { AutoCompleteProps } from "../../types";
-import { useVisible } from "./hooks/isVisible";
+import { useVisible } from "./hooks/useVisible";
 import { useSelectedOptions } from "./hooks/useSelectedOptions";
 import { useInput } from "./useInput";
 import { getFilteredOptions } from "./utils/getFilteredOptions";
@@ -12,10 +12,15 @@ export const AutoComplete = <T = string | number,>({
   label,
   options,
   onChange,
+  onBlur,
   getValue,
 }: AutoCompleteProps<T>) => {
-  const { isVisible, handleSetVisible, containerRef } = useVisible();
-  const { handleSelectedOption } = useSelectedOptions<T>(onChange);
+  const { handleSelectedOption, selectedOptions } =
+    useSelectedOptions<T>(onChange);
+  const { isVisible, handleSetVisible, containerRef } = useVisible(
+    selectedOptions,
+    onBlur
+  );
   const { inputValue, handleInputValue } = useInput();
 
   const filteredOptions = getFilteredOptions(options, inputValue, getValue);
