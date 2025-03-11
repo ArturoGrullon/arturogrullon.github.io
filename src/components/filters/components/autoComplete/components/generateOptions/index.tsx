@@ -4,11 +4,11 @@ import { getCurrentOption } from "../../utils/getCurrentOption";
 export const GenerateOptions = <T = string | number,>({
   filteredOptions,
   getValue,
+  selectedOptionsRef,
   inputValue,
-  activeOptions,
   handleSelectedOption,
-}: GenerateOptionsProps<T>) => {
-  return filteredOptions.map((option) => {
+}: GenerateOptionsProps<T>) =>
+  filteredOptions.map((option) => {
     const currentOption = getCurrentOption(option, getValue);
 
     return (
@@ -16,7 +16,7 @@ export const GenerateOptions = <T = string | number,>({
         <input
           className="cursor-pointer w-5 h-5 shrink-0"
           name={currentOption}
-          defaultChecked={activeOptions?.includes(option)}
+          defaultChecked={selectedOptionsRef.current?.includes(option)}
           value={inputValue}
           onChange={() => handleSelectedOption(option)}
           id={currentOption}
@@ -31,4 +31,3 @@ export const GenerateOptions = <T = string | number,>({
       </section>
     );
   });
-};

@@ -1,9 +1,11 @@
 import { Card } from "pixel-retroui";
-import { useState } from "react";
 import { AutoComplete } from "./components/autoComplete/";
 import { AgeRangeInput } from "./components/ageRangeInput";
+import { useActiveFilters } from "./components/autoComplete/hooks/useActiveFilters";
+import { ActiveFilters } from "./components/autoComplete/components/activeFilters";
 
 export const Filters = () => {
+  const zipCodes = [423142, 12434231, 412, 4124, 532];
   const options = [
     "Labrador",
     "Golden Retriever",
@@ -13,16 +15,18 @@ export const Filters = () => {
     "Pug",
   ];
 
-  const zipCodes = [423142, 12434231, 412, 4124, 532];
-
-  const [activeFilters, setActiveFilters] = useState<Record<string, any>>({});
-  const handleAddFilter = <T,>(key: string, value: T) => {
-    setActiveFilters({ ...activeFilters, [key]: value });
-  };
+  const { activeFilters, handleAddFilter, handleRemoveFilter } =
+    useActiveFilters();
 
   return (
     <Card className="absolute top-0 left-[-21.5rem] w-[20rem] flex flex-col gap-6 p-4">
       <h1>Filters</h1>
+      <ActiveFilters
+        {...{
+          handleRemoveFilter,
+          activeFilters,
+        }}
+      />
       <AutoComplete
         {...{
           label: "Breed",
@@ -43,9 +47,11 @@ export const Filters = () => {
         <AgeRangeInput
           label="Min Age"
           onChange={(minAge) => handleAddFilter("minAge", minAge)}
+          placeholder="Min"
         />
         <AgeRangeInput
           label="Max Age"
+          placeholder="Max"
           onChange={(maxAge) => handleAddFilter("maxAge", maxAge)}
         />
       </section>

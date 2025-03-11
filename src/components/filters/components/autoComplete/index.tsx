@@ -16,12 +16,17 @@ export const AutoComplete = <T = string | number,>({
   onBlur,
   getValue,
 }: AutoCompleteProps<T>) => {
-  const { handleSelectedOption, selectedOptions } =
-    useSelectedOptions<T>(onChange);
-  const { isVisible, handleSetVisible, containerRef } = useVisible(
-    selectedOptions,
-    onBlur
-  );
+  const {
+    handleSelectedOption,
+    selectedOptionsRef,
+    handleResetSelectedOptions,
+  } = useSelectedOptions<T>(onChange, activeOptions);
+
+  const { isVisible, handleSetVisible, containerRef } = useVisible({
+    selectedOptionsRef,
+    handleResetSelectedOptions,
+    onBlur,
+  });
   const { inputValue, handleInputValue } = useInput();
 
   const filteredOptions = getFilteredOptions(options, inputValue, getValue);
@@ -49,9 +54,9 @@ export const AutoComplete = <T = string | number,>({
           <GenerateOptions
             {...{
               getValue,
+              selectedOptionsRef,
               filteredOptions,
               inputValue,
-              activeOptions,
               handleSelectedOption,
             }}
           />
