@@ -6,7 +6,7 @@ import { DogCard } from "./components/dogCard";
 export const Table = ({ dogs }: DogTableProps) => (
   <Card
     style={{ padding: "2rem" }}
-    className="flex flex-col gap-4 w-3xl max-h-[45rem]"
+    className="flex flex-col gap-4 w-3xl"
     bg="gray"
   >
     <AnimatePresence>
