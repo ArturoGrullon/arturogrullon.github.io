@@ -16,22 +16,28 @@ export const AutoComplete = <T = string | number,>({
   onBlur,
   getValue,
 }: AutoCompleteProps<T>) => {
+  //Selecting options handler
   const {
     handleSelectedOption,
     selectedOptionsRef,
     handleResetSelectedOptions,
   } = useSelectedOptions<T>(onChange, activeOptions);
 
+  //Options visibility
   const { isVisible, handleSetVisible, containerRef } = useVisible({
     selectedOptionsRef,
     handleResetSelectedOptions,
     onBlur,
   });
+
+  //Input value handler
   const { inputValue, handleInputValue } = useInput();
 
+  //Filtered options
   const filteredOptions = getFilteredOptions(options, inputValue, getValue);
   const filteredOptionsCount = filteredOptions.length;
 
+  //Debounce
   const debounceDelay = 500;
   const debounceHandleInputValue = useDebounce(handleInputValue, debounceDelay);
 
@@ -49,7 +55,7 @@ export const AutoComplete = <T = string | number,>({
         placeholder="Search"
       />
       {isVisible ? (
-        <Card className="flex flex-col h-fit absolute top-[110%] z-10 p-4 gap-3 max-w-full max-h-[15rem]  overflow-y-scroll overflow-hidden">
+        <Card className="flex flex-col h-fit absolute top-[110%] z-10 p-4 gap-3  max-w-full max-h-[15rem]  overflow-y-scroll overflow-hidden">
           <NoResults {...{ filteredOptionsCount }} />
           <GenerateOptions
             {...{
