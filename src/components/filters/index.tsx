@@ -1,12 +1,12 @@
 import { Card } from "pixel-retroui";
 import { AutoComplete } from "./components/autoComplete/";
-import { AgeRangeInput } from "./components/ageRangeInput";
 import { useActiveFilters } from "./components/autoComplete/hooks/useActiveFilters";
-import { ActiveFilters } from "./components/autoComplete/components/activeFilters";
+import { Input } from "./components/input";
+import { US_STATES } from "../../data/states";
+import { FilterBy } from "../filterBy";
 
 export const Filters = () => {
-  const zipCodes = [423142, 12434231, 412, 4124, 532];
-  const options = [
+  const breeds = [
     "Labrador",
     "Golden Retriever",
     "German Shepherd",
@@ -19,39 +19,51 @@ export const Filters = () => {
     useActiveFilters();
 
   return (
-    <Card className="absolute top-0 left-[-21.5rem] w-[20rem] flex flex-col gap-6 p-4">
+    <Card className="w-[20rem] flex flex-col gap-6 p-4 sticky top-29 m-[5rem]">
       <h1>Filters</h1>
-      <ActiveFilters
+      {/* <ActiveFilters
         {...{
           handleRemoveFilter,
           activeFilters,
         }}
-      />
+      /> */}
+
+      <FilterBy />
       <AutoComplete
         {...{
-          label: "Breed",
-          options,
+          label: "State",
+          options: US_STATES,
           activeOptions: activeFilters.breeds,
           onBlur: (breeds: string[]) => handleAddFilter("breeds", breeds),
         }}
       />
+      <Input placeholder="City" label={"City"} />
       <AutoComplete
         {...{
-          label: "Zip Code",
-          options: zipCodes,
-          activeOptions: activeFilters.zipCodes,
-          onBlur: (zipCodes: number[]) => handleAddFilter("zipCodes", zipCodes),
+          label: "Breed",
+          options: breeds,
+          activeOptions: activeFilters.breeds,
+          onBlur: (breeds: string[]) => handleAddFilter("breeds", breeds),
         }}
       />
+      <Input
+        placeholder="Press enter to add"
+        label={"Zip Code"}
+        type="number"
+      />
       <section className="flex gap-8">
-        <AgeRangeInput
+        <Input
+          className="w-28"
           label="Min Age"
+          type="number"
           onChange={(minAge) => handleAddFilter("minAge", minAge)}
           placeholder="Min"
         />
-        <AgeRangeInput
+        <Input
+          className="w-28"
           label="Max Age"
           placeholder="Max"
+          type="number"
           onChange={(maxAge) => handleAddFilter("maxAge", maxAge)}
         />
       </section>
