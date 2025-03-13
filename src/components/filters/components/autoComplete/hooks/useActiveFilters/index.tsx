@@ -1,13 +1,23 @@
 import { useState } from "react";
+import { DEFAULT_ACTIVE_FILTERS } from "./constants";
+import { ActiveFilters, UseActiveFilters } from "./types";
 
-export const useActiveFilters = () => {
-  const [activeFilters, setActiveFilters] = useState<Record<string, any>>({});
+export const useActiveFilters = (): UseActiveFilters => {
+  const [activeFilters, setActiveFilters] = useState<ActiveFilters>(
+    DEFAULT_ACTIVE_FILTERS
+  );
 
-  const handleAddFilter = <T,>(key: string, value: T) => {
+  const handleAddFilter = <T extends keyof ActiveFilters>(
+    key: T,
+    value: ActiveFilters[T]
+  ) => {
     setActiveFilters({ ...activeFilters, [key]: value });
   };
 
-  const handleRemoveFilter = <T,>(key: string, valueToRemove: T) => {
+  const handleRemoveFilter = <T extends keyof ActiveFilters>(
+    key: T,
+    valueToRemove: ActiveFilters[T]
+  ) => {
     if (!valueToRemove) return;
     const objectValue = activeFilters[key];
 

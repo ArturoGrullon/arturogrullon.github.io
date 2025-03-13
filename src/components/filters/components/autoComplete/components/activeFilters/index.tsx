@@ -1,12 +1,11 @@
-import { Card } from "pixel-retroui";
 import { RenderFilter } from "../renderFilter";
 import { RenderFiltersArray } from "../renderFiltersArray";
 import { ActiveFiltersProps } from "./types";
 
-export const ActiveFilters = <T,>({
+export const ActiveFilters = ({
   activeFilters,
   handleRemoveFilter,
-}: ActiveFiltersProps<T>) => {
+}: ActiveFiltersProps) => {
   const hasActiveFilters = !!Object.values(activeFilters).some(
     (value) => !!value.length
   );
@@ -14,18 +13,19 @@ export const ActiveFilters = <T,>({
   if (!hasActiveFilters) return null;
 
   return (
-    <Card className="flex text-left flex-col gap-2">
+    <div className="flex text-left items-center gap-2 flex-wrap">
       {Object.entries(activeFilters).map(([key, value]) => {
         if (!value || !value.length) return null;
+        const label = key as keyof typeof activeFilters;
 
         if (Array.isArray(value)) {
           return (
             <RenderFiltersArray
               {...{
-                key: value,
-                value,
+                key,
+                items: value,
                 handleRemoveFilter,
-                label: key,
+                label,
               }}
             />
           );
@@ -35,12 +35,13 @@ export const ActiveFilters = <T,>({
           <RenderFilter
             {...{
               key: value,
-              label: key,
+              label,
               value,
+              handleRemoveFilter,
             }}
           />
         );
       })}
-    </Card>
+    </div>
   );
 };

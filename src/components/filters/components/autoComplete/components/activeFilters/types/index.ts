@@ -1,4 +1,6 @@
-export type ActiveFiltersProps<T> = {
-  activeFilters: Record<string, any>;
-  handleRemoveFilter: (key: string, valueToRemove: T) => void;
-};
+import { UseActiveFilters } from "../../../hooks/useActiveFilters/types";
+
+export type ActiveFiltersProps = Pick<
+  UseActiveFilters,
+  "activeFilters" | "handleRemoveFilter"
+>;
