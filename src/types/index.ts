@@ -15,3 +15,10 @@ export type Location = {
   zip_code: string;
   longitude: number;
 };
+
+export type DogsSearch = {
+  next: string;
+  prev: string;
+  resultIds: string[];
+  total: number;
+};
