@@ -2,7 +2,7 @@ import { Card } from "pixel-retroui";
 import { AutoComplete } from "./components/autoComplete";
 import { Input } from "./components/input";
 import { FiltersProps } from "./types";
-import { FilterBy } from "./components/filterBy";
+import { SortBy } from "./components/sortBy";
 import { useFetch } from "./hooks/useFetch";
 
 export const Filters = ({ handleAddFilter, activeFilters }: FiltersProps) => {
@@ -11,7 +11,7 @@ export const Filters = ({ handleAddFilter, activeFilters }: FiltersProps) => {
   return (
     <Card className="flex flex-col gap-6 p-4 sticky top-[7rem] m-[5rem]">
       <h1>Filters</h1>
-      <FilterBy {...{ handleAddFilter, activeFilters }} />
+      <SortBy {...{ handleAddFilter, activeFilters }} />
       <AutoComplete
         {...{
           label: "Breed",

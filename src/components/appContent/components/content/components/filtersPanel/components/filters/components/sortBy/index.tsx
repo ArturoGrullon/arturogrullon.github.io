@@ -3,7 +3,7 @@ import { SORT_OPTIONS } from "./constants";
 import { useVisible } from "../../hooks/useVisible";
 import { FiltersProps } from "../../types";
 
-export const FilterBy = ({ handleAddFilter, activeFilters }: FiltersProps) => {
+export const SortBy = ({ handleAddFilter, activeFilters }: FiltersProps) => {
   const { isVisible, handleToggleVisible, handleSetVisible, containerRef } =
     useVisible<HTMLDivElement>();
 
