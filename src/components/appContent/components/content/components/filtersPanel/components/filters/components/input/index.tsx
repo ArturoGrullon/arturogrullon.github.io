@@ -26,6 +26,7 @@ export const Input = ({
         className={className}
         value={inputValue}
         onChange={({ target: { value } }) => handleOnChange(value)}
+        textColor="white"
         name={label}
         type={type}
         onKeyDown={({ key, target }) =>

@@ -1,3 +1,4 @@
+import { getColor } from "@/utils/getColor";
 import { Button } from "pixel-retroui";
 
 type AddoptButtonProps = {
@@ -20,7 +21,12 @@ export const AddoptButton = ({
   if (disableAddoptButton) return null;
 
   return (
-    <Button onClick={handleOnClick} className="w-28 h-fit">
+    <Button
+      bg={getColor("primary")}
+      textColor={getColor("background")}
+      onClick={handleOnClick}
+      className="w-28 h-fit"
+    >
       {adopted ? "Remove" : "Addopt"}
     </Button>
   );

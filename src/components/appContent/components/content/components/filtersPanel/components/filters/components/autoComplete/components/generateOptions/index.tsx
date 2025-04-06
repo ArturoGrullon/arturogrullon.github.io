@@ -1,3 +1,4 @@
+import { getColor } from "@/utils/getColor";
 import { GenerateOptionsProps } from "../../types";
 import { getCurrentOption } from "../../utils/getCurrentOption";
 
@@ -14,7 +15,9 @@ export const GenerateOptions = <T = string | number,>({
     return (
       <section key={index} className="flex items-center gap-4">
         <input
-          className="cursor-pointer w-5 h-5 shrink-0"
+          bg={getColor("secondary")}
+          textColor={getColor("primary")}
+          className="cursor-pointer w-5 h-5 shrink-0 bg-primary"
           name={currentOption}
           defaultChecked={selectedOptionsRef.current?.includes(option)}
           value={inputValue}

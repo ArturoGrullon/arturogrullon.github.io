@@ -7,6 +7,7 @@ import { GenerateOptions } from "./components/generateOptions";
 import { NoResults } from "./components/noResults";
 import { useDebounce } from "@/utils/debounce";
 import { useVisible } from "../../hooks/useVisible";
+import { getColor } from "@/utils/getColor";
 
 export const AutoComplete = <T,>({
   label,
@@ -44,6 +45,8 @@ export const AutoComplete = <T,>({
         {label}:
       </label>
       <Input
+        bg={getColor("secondary")}
+        textColor={getColor("primary")}
         id={label}
         name={label}
         onClick={() => handleSetVisible(true)}
@@ -52,7 +55,11 @@ export const AutoComplete = <T,>({
         placeholder="Search"
       />
       {isVisible ? (
-        <Card className="flex flex-col h-fit absolute top-[110%] z-10 p-4 gap-3  max-w-full max-h-[15rem]  overflow-y-scroll overflow-hidden">
+        <Card
+          bg={getColor("surface")}
+          borderColor={getColor("primary")}
+          className="flex flex-col h-fit absolute top-[110%] z-10 p-4 gap-3  max-w-full max-h-[15rem]  overflow-y-scroll overflow-hidden"
+        >
           <NoResults {...{ filteredOptionsCount }} />
           <GenerateOptions
             {...{

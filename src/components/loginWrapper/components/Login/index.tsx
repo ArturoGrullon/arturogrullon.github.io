@@ -2,6 +2,7 @@ import { Button, Card, Input } from "pixel-retroui";
 import { motion } from "motion/react";
 import { LoginProps } from "./types";
 import { MIN_INPUT_CHARACTERS } from "./constants";
+import { getColor } from "@/utils/getColor";
 
 export const Login = ({ handleLogin }: LoginProps) => (
   <motion.div
@@ -9,12 +10,18 @@ export const Login = ({ handleLogin }: LoginProps) => (
     animate={{ opacity: 1 }}
     exit={{ opacity: 0 }}
   >
-    <Card className="justify-center items-center flex" bg="gray">
+    <Card
+      className="justify-center items-center flex"
+      bg={getColor("surface")}
+      borderColor={getColor("primary")}
+    >
       <form
         onSubmit={handleLogin}
         className="flex p-20 flex-col gap-8 justify-center items-center"
       >
         <Input
+          bg={getColor("secondary")}
+          textColor={getColor("background")}
           className="w-[20rem]"
           type="text"
           name="name"
@@ -23,6 +30,8 @@ export const Login = ({ handleLogin }: LoginProps) => (
           minLength={MIN_INPUT_CHARACTERS}
         />
         <Input
+          bg={getColor("secondary")}
+          textColor={getColor("background")}
           className="w-[20rem]"
           name="email"
           required
@@ -30,7 +39,12 @@ export const Login = ({ handleLogin }: LoginProps) => (
           type={"email"}
           minLength={MIN_INPUT_CHARACTERS}
         />
-        <Button type="submit" className="w-28">
+        <Button
+          bg={getColor("primary")}
+          textColor={getColor("background")}
+          type="submit"
+          className="w-28"
+        >
           Login
         </Button>
       </form>

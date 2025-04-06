@@ -4,12 +4,17 @@ import { Input } from "./components/input";
 import { FiltersProps } from "./types";
 import { SortBy } from "./components/sortBy";
 import { useFetch } from "./hooks/useFetch";
+import { getColor } from "@/utils/getColor";
 
 export const Filters = ({ handleAddFilter, activeFilters }: FiltersProps) => {
   const { data: breeds = [] } = useFetch("/dogs/breeds");
 
   return (
-    <Card className="flex flex-col gap-6 p-4 sticky top-[7rem] m-[5rem]">
+    <Card
+      bg={getColor("surface")}
+      borderColor={getColor("primary")}
+      className="flex flex-col gap-6 p-4 sticky top-[7rem] m-[5rem]"
+    >
       <h1>Filters</h1>
       <SortBy {...{ handleAddFilter, activeFilters }} />
       <AutoComplete
@@ -21,6 +26,8 @@ export const Filters = ({ handleAddFilter, activeFilters }: FiltersProps) => {
         }}
       />
       <Input
+        bg={getColor("secondary")}
+        textColor={getColor("primary")}
         placeholder="Press enter to add"
         label={"Zip Code"}
         type="number"
@@ -28,6 +35,8 @@ export const Filters = ({ handleAddFilter, activeFilters }: FiltersProps) => {
       />
       <section className="flex gap-8">
         <Input
+          bg={getColor("secondary")}
+          textColor={getColor("primary")}
           className="w-28"
           label="Min Age"
           value={activeFilters.ageMin}
@@ -36,6 +45,8 @@ export const Filters = ({ handleAddFilter, activeFilters }: FiltersProps) => {
           placeholder="Min"
         />
         <Input
+          bg={getColor("secondary")}
+          textColor={getColor("primary")}
           className="w-28"
           label="Max Age"
           value={activeFilters.ageMax}

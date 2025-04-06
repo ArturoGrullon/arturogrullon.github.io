@@ -8,6 +8,7 @@ import { handleAdoptClick } from "./utils/handleAdoptClick";
 import { handleClosePopup } from "./utils/handleClosePopup";
 import { useMatchedDog } from "./hooks/useMatchedDog";
 import { FavoriteDogsContext } from "../../../../context/favoriteDogsContext";
+import { getColor } from "@/utils/getColor";
 
 export const FavoriteDogs = () => {
   //Popup state
@@ -33,7 +34,12 @@ export const FavoriteDogs = () => {
 
   return (
     <>
-      <Button style={{ position: "sticky", top: 60 }} onClick={openPopup}>
+      <Button
+        bg={getColor("primary")}
+        textColor={getColor("background")}
+        style={{ position: "sticky", top: 60, color: "white" }}
+        onClick={openPopup}
+      >
         Favorite dogs ({numberOfFavoriteDogs})
       </Button>
       <FavoriteDogsModal
