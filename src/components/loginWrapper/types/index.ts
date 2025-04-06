@@ -1,8 +1,8 @@
 import { ReactNode } from "react";
 
 export type User = {
-  username: string;
-  password: string;
+  name: string;
+  email: string;
 };
 
 export type LoginWrapperProps = {
