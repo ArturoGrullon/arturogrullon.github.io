@@ -8,7 +8,7 @@ export const ActiveFilters = ({
   handleRemoveFilter,
 }: ActiveFiltersProps) => {
   const hasActiveFilters = !!Object.values(activeFilters).some(
-    (value) => !!value.length
+    (value) => !!value?.length
   );
 
   if (!hasActiveFilters) return null;
