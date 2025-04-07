@@ -1,4 +1,3 @@
-import { getColor } from "@/utils/getColor";
 import { GenerateOptionsProps } from "../../types";
 import { getCurrentOption } from "../../utils/getCurrentOption";
 
