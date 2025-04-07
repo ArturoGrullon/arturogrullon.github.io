@@ -35,6 +35,7 @@ export const useDogs = (activeFilters: ActiveFilters): UseDogs => {
     isLoadingIds,
     isValidating,
     size,
+    total,
   } = useFetchDogsIds({ getEndpointWithQuerys });
 
   const queriesChanged = useQueriesResetRef([
@@ -58,5 +59,6 @@ export const useDogs = (activeFilters: ActiveFilters): UseDogs => {
     isLoading: isLoadingDogs || isLoadingIds || isValidating,
     hasNextPage,
     isValidating,
+    total,
   };
 };

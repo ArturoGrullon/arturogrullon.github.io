@@ -10,12 +10,19 @@ export const Content = ({
   name: userName,
   ...dogResultsProps
 }: ContentProps) => {
+  const { dogs, total } = dogResultsProps;
   userGuide();
-
   return (
     <main className="flex gap-2rem">
       <FavoriteDogsProvider userName={userName}>
-        <FiltersPanel {...{ activeFilters, handleAddFilter }} />
+        <FiltersPanel
+          {...{
+            activeFilters,
+            handleAddFilter,
+            dogCount: dogs.length,
+            total,
+          }}
+        />
         <DogsResults {...{ ...dogResultsProps, activeFilters }} />
       </FavoriteDogsProvider>
     </main>

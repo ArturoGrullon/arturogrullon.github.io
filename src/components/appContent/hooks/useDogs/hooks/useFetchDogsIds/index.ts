@@ -25,6 +25,7 @@ export const useFetchDogsIds = ({
 
   //Size starts at 1, so we need to subtract 1 to match the index
   const index = size - 1;
+  const total = dogsIdsArray?.[index]?.total;
   const hasNextPage =
     Array.isArray(dogsIdsArray) && Boolean(dogsIdsArray[index]?.next);
 
@@ -36,5 +37,6 @@ export const useFetchDogsIds = ({
     isValidating,
     handleLoadMore,
     hasNextPage,
+    total,
   };
 };

@@ -12,4 +12,5 @@ export type UseFetchDogsIds = {
   isValidating: boolean;
   handleLoadMore: () => void;
   hasNextPage: boolean;
+  total: number | undefined;
 };

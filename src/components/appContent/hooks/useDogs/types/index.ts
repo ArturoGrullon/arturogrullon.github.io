@@ -8,4 +8,5 @@ export type UseDogs = Pick<
   dogs: Dog[] | null;
   isLoading: boolean;
   isValidating: boolean;
+  total: number | undefined;
 };
