@@ -20,7 +20,7 @@ export const DogCard = ({ dog, disableAddoptButton }: DogCardProps) => {
         <img
           src={dog.img}
           alt={dog.name}
-          className="w-[10rem] !h-[10rem] object-fill"
+          className="w-[10rem] !h-[10rem] object-fill rounded-2xl"
         />
         <DogMetadata {...{ ...dog }} />
       </section>
