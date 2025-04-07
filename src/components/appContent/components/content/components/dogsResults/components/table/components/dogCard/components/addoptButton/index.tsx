@@ -17,6 +17,7 @@ export const AddoptButton = ({
 
   return (
     <PixelButton
+      id="addopt-button"
       bg={getColor("primary")}
       textColor={getColor("background")}
       onClick={handleOnClick}

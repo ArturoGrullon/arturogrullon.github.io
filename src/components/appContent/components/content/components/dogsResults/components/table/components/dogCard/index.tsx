@@ -16,7 +16,7 @@ export const DogCard = ({ dog, disableAddoptButton }: DogCardProps) => {
       borderColor={getColor("primary")}
       className=" flex  gap-5 justify-between items-center"
     >
-      <section className="flex gap-4 items-center">
+      <section id="dog-info" className="flex gap-4 items-center">
         <img
           src={dog.img}
           alt={dog.name}

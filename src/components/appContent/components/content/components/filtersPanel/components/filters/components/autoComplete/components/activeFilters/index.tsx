@@ -14,7 +14,10 @@ export const ActiveFilters = ({
   if (!hasActiveFilters) return null;
 
   return (
-    <div className="flex text-left items-center gap-2 flex-wrap">
+    <div
+      id="active-filters"
+      className="flex text-left items-center gap-2 flex-wrap"
+    >
       {Object.entries(activeFilters).map(([key, value], index) => {
         if (!value || !value.length) return null;
         const label = key as ActiveFiltersKeys;
