@@ -1,11 +1,6 @@
+import { PixelButton } from "@/components/components/pixelButton";
 import { getColor } from "@/utils/getColor";
-import { Button } from "pixel-retroui";
-
-type AddoptButtonProps = {
-  onClick?: () => void | undefined;
-  adopted: boolean;
-  disableAddoptButton?: boolean;
-};
+import { AddoptButtonProps } from "./types";
 
 export const AddoptButton = ({
   onClick,
@@ -21,13 +16,13 @@ export const AddoptButton = ({
   if (disableAddoptButton) return null;
 
   return (
-    <Button
+    <PixelButton
       bg={getColor("primary")}
       textColor={getColor("background")}
       onClick={handleOnClick}
       className="w-28 h-fit"
     >
       {adopted ? "Remove" : "Addopt"}
-    </Button>
+    </PixelButton>
   );
 };

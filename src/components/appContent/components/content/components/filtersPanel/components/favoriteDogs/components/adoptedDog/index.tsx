@@ -1,9 +1,9 @@
 import { useContext } from "react";
-import { Button } from "pixel-retroui";
 import { AdoptedDogProps } from "./types";
 import { DogCard } from "@/components/appContent/components/content/components/dogsResults/components/table/components/dogCard";
 import { FavoriteDogsContext } from "@/components/appContent/components/content/context/favoriteDogsContext";
 import { getColor } from "@/utils/getColor";
+import { PixelButton } from "@/components/components/pixelButton";
 
 export const AdoptedDog = ({ adoptedDog, closePopup }: AdoptedDogProps) => {
   const { userName } = useContext(FavoriteDogsContext);
@@ -15,13 +15,13 @@ export const AdoptedDog = ({ adoptedDog, closePopup }: AdoptedDogProps) => {
         Congrats {userName}! here's your adopted dog
       </h2>
       <DogCard {...{ dog: adoptedDog, disableAddoptButton: true }} />
-      <Button
+      <PixelButton
         bg={getColor("surface")}
         textColor={getColor("primary")}
         onClick={closePopup}
       >
         Close
-      </Button>
+      </PixelButton>
     </div>
   );
 };

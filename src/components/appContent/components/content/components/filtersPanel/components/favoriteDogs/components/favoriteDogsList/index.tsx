@@ -1,7 +1,7 @@
-import { Button } from "pixel-retroui";
 import { GenerateDogs } from "@/components/appContent/components/content/components/dogsResults/components/table/components/generateDogs";
 import { Dog } from "@/types";
 import { getColor } from "@/utils/getColor";
+import { PixelButton } from "@/components/components/pixelButton";
 
 type FavoriteDogsProps = {
   favoriteDogs: Dog[];
@@ -17,13 +17,13 @@ export const FavoriteDogsList = ({
     <div className="flex gap-5 flex-wrap items-center justify-between w-[80rem] max-h-[50rem] overflow-y-scroll">
       <GenerateDogs dogs={favoriteDogs} />
     </div>
-    <Button
+    <PixelButton
       bg={getColor("surface")}
       textColor={getColor("primary")}
       onClick={handleAdoptClick}
       className="w-[8rem] align-middle"
     >
       Adopt one
-    </Button>
+    </PixelButton>
   </section>
 );

@@ -1,6 +1,6 @@
-import { Button } from "pixel-retroui";
 import { RenderFilterProps } from "./types";
 import { getColor } from "@/utils/getColor";
+import { PixelButton } from "@/components/components/pixelButton";
 
 export const RenderFilter = ({
   label,
@@ -9,10 +9,10 @@ export const RenderFilter = ({
 }: RenderFilterProps) => (
   <section className="flex gap-2 items-center text-nowrap">
     {label ? <h2 className="text-black">{label}:</h2> : null}
-    <Button
+    <PixelButton
       bg={getColor("primary")}
       textColor={getColor("background")}
       onClick={() => handleRemoveFilter(label, value)}
-    >{`${value} X`}</Button>
+    >{`${value} X`}</PixelButton>
   </section>
 );

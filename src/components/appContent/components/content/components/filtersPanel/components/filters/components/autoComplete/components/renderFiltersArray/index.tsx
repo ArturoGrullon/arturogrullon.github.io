@@ -1,6 +1,6 @@
-import { Button } from "pixel-retroui";
 import { RenderFiltersArrayProps } from "./types";
 import { getColor } from "@/utils/getColor";
+import { PixelButton } from "@/components/components/pixelButton";
 
 export const RenderFiltersArray = ({
   label,
@@ -10,12 +10,12 @@ export const RenderFiltersArray = ({
   <div className="flex gap-2 flex-wrap items-center text-red-600">
     <h2 className="text-black">{label}</h2>:
     {items.map((item: string, index) => (
-      <Button
+      <PixelButton
         bg={getColor("primary")}
         textColor={getColor("background")}
         key={index}
         onClick={() => handleRemoveFilter(label, item)}
-      >{`${item} X`}</Button>
+      >{`${item} X`}</PixelButton>
     ))}
   </div>
 );

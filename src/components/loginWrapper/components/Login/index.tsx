@@ -1,8 +1,9 @@
-import { Button, Card, Input } from "pixel-retroui";
+import { Card, Input } from "pixel-retroui";
 import { motion } from "motion/react";
 import { LoginProps } from "./types";
 import { MIN_INPUT_CHARACTERS } from "./constants";
 import { getColor } from "@/utils/getColor";
+import { PixelButton } from "@/components/components/pixelButton";
 
 export const Login = ({ handleLogin }: LoginProps) => (
   <motion.div
@@ -39,14 +40,14 @@ export const Login = ({ handleLogin }: LoginProps) => (
           type={"email"}
           minLength={MIN_INPUT_CHARACTERS}
         />
-        <Button
+        <PixelButton
           bg={getColor("primary")}
           textColor={getColor("background")}
           type="submit"
           className="w-28"
         >
           Login
-        </Button>
+        </PixelButton>
       </form>
     </Card>
   </motion.div>
