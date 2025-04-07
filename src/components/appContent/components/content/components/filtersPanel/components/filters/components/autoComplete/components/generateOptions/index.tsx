@@ -15,8 +15,6 @@ export const GenerateOptions = <T = string | number,>({
     return (
       <section key={index} className="flex items-center gap-4">
         <input
-          bg={getColor("secondary")}
-          textColor={getColor("primary")}
           className="cursor-pointer w-5 h-5 shrink-0 bg-primary"
           name={currentOption}
           defaultChecked={selectedOptionsRef.current?.includes(option)}
