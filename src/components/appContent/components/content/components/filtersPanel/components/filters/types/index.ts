@@ -17,4 +17,7 @@ export type AutoCompleteProps<TOptions> = TOptions extends {
       getValue?: AutoComplete<TOptions>["getValue"];
     };
 
-export type FiltersProps = FiltersPanelProps;
+export type FiltersProps = Pick<
+  FiltersPanelProps,
+  "activeFilters" | "handleAddFilter"
+>;

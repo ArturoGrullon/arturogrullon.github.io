@@ -13,7 +13,7 @@ export const Filters = ({ handleAddFilter, activeFilters }: FiltersProps) => {
     <Card
       bg={getColor("surface")}
       borderColor={getColor("primary")}
-      className="flex flex-col gap-6 p-4 sticky top-[7rem] m-[5rem]"
+      className="flex flex-col gap-6 p-4 m-[5rem]"
     >
       <h1>Filters</h1>
       <SortBy {...{ handleAddFilter, activeFilters }} />

@@ -46,7 +46,7 @@ export const AutoComplete = <T,>({
       </label>
       <Input
         bg={getColor("secondary")}
-        textColor={getColor("primary")}
+        textColor={"white"}
         id={label}
         name={label}
         onClick={() => handleSetVisible(true)}

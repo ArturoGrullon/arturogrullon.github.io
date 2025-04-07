@@ -25,7 +25,7 @@ export const getUserSteps = driver({
       popover: {
         title: "Active Filteres",
         description:
-          "As you add filters they will show here, here as well you can remove then if you want.",
+          "As you add filters they will show here, click on then to remove them.",
         side: "left",
         align: "start",
       },
