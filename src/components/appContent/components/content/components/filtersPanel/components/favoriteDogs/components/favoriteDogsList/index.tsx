@@ -1,12 +1,7 @@
 import { GenerateDogs } from "@/components/appContent/components/content/components/dogsResults/components/table/components/generateDogs";
-import { Dog } from "@/types";
 import { getColor } from "@/utils/getColor";
 import { PixelButton } from "@/components/components/pixelButton";
-
-type FavoriteDogsProps = {
-  favoriteDogs: Dog[];
-  handleAdoptClick: () => void;
-};
+import { FavoriteDogsProps } from "./types";
 
 export const FavoriteDogsList = ({
   favoriteDogs,

@@ -1,8 +1,8 @@
 import { motion } from "motion/react";
 import { DogCard } from "../dogCard";
-import { Dog } from "@/types";
+import { GenerateDogsProps } from "./types";
 
-export const GenerateDogs = ({ dogs }: { dogs: Dog[] }) =>
+export const GenerateDogs = ({ dogs }: GenerateDogsProps) =>
   dogs.map(({ ...dogProps }) => (
     <motion.div key={dogProps.id} layout>
       <DogCard {...{ dog: dogProps }} />

@@ -8,12 +8,11 @@ export const AddoptButton = ({
   adopted = false,
 }: AddoptButtonProps) => {
   if (!onClick) return null;
+  if (disableAddoptButton) return null;
 
   const handleOnClick = () => {
     onClick?.();
   };
-
-  if (disableAddoptButton) return null;
 
   return (
     <PixelButton
