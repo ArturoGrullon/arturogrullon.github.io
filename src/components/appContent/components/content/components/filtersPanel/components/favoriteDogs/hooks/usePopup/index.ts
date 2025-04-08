@@ -1,8 +1,12 @@
-import { useState } from "react";
-import { UsePopup } from "./types";
+import { useEffect, useState } from "react";
+import { UsePopup, UsePopupProps } from "./types";
 
-export const usePopup = (): UsePopup => {
+export const usePopup = ({ numberOfFavoriteDogs }: UsePopupProps): UsePopup => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+  useEffect(() => {
+    if (numberOfFavoriteDogs < 1) setIsPopupOpen(false);
+  }, [numberOfFavoriteDogs]);
 
   return {
     isPopupOpen,

@@ -7,14 +7,11 @@ import { matchDogFetcher } from "./api/matchDogFetcher";
 import { handleAdoptClick } from "./utils/handleAdoptClick";
 import { handleClosePopup } from "./utils/handleClosePopup";
 import { useMatchedDog } from "./hooks/useMatchedDog";
-import { FavoriteDogsContext } from "../../../../context/favoriteDogsContext";
 import { getColor } from "@/utils/getColor";
 import { PixelButton } from "@/components/components/pixelButton";
+import { FavoriteDogsContext } from "@/components/appContent/components/content/context/favoriteDogsContext";
 
 export const FavoriteDogs = () => {
-  //Popup state
-  const { isPopupOpen, closePopup, openPopup } = usePopup();
-
   //Matched dog state
   const { matchedDog, resetMatchedDog, updateMatchedDog } = useMatchedDog();
 
@@ -24,6 +21,11 @@ export const FavoriteDogs = () => {
   const numberOfFavoriteDogs = favoriteDogs.length;
   const hasFavoriteDogs = !!numberOfFavoriteDogs;
   const adoptedDog = favoriteDogs.find(({ id }) => id === matchedDog);
+
+  //Popup state
+  const { isPopupOpen, closePopup, openPopup } = usePopup({
+    numberOfFavoriteDogs,
+  });
 
   //Matched dog mutation
   const { trigger, isMutating } = useSWRMutation(

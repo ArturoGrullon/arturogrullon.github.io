@@ -3,3 +3,7 @@ export type UsePopup = {
   closePopup: () => void;
   openPopup: () => void;
 };
+
+export type UsePopupProps = {
+  numberOfFavoriteDogs: number;
+};
