@@ -9,9 +9,9 @@ export const DogsCount = ({ dogCount, total: totalDogs }: DogsCountProps) => {
   return (
     <Card
       bg={getColor("surface")}
-      className="text-black b !text-2xl text-left w-fit"
+      className="text-black b !text-xl text-left w-fit"
     >
-      {dogCount} of {total} dogs
+       {dogCount} of {total} dogs
     </Card>
   );
 };
