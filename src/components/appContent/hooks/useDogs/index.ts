@@ -9,6 +9,7 @@ import { getDogSearchParams } from "@/utils/getDogSearchParams";
 import { DogSearchParams } from "@/utils/getDogSearchParams/types";
 import { getLocationSearchParams } from "@/utils/getLocationSearchParams";
 import { getQueryString } from "@/utils/getQueryString";
+import { useLoading } from "./hooks/useLoading";
 
 export const useDogs = (activeFilters: ActiveFilters): UseDogs => {
   //Dogs search params
@@ -53,11 +54,18 @@ export const useDogs = (activeFilters: ActiveFilters): UseDogs => {
     hasNextPage,
   });
 
+  const isLoading = useLoading({
+    isLoadingDogs,
+    isLoadingIds,
+    isValidating,
+  });
+
   return {
     dogs,
     handleLoadMore,
-    isLoading: isLoadingDogs || isLoadingIds || isValidating,
+    isFetching: isLoadingDogs || isLoadingIds || isValidating,
     hasNextPage,
+    isLoading,
     isValidating,
     total,
   };

@@ -7,6 +7,7 @@ import { DogsCount } from "./components/dogsCount";
 export const FiltersPanel = ({
   dogCount,
   total,
+  isLoading,
   ...filters
 }: FiltersPanelProps) => (
   <section id="filters-panel" className="basis-[30%] w-full p-5 relative">
@@ -15,7 +16,7 @@ export const FiltersPanel = ({
         <FavoriteDogs />
       </AnimatePresence>
       <Filters {...filters} />
-      <DogsCount {...{ dogCount, total }} />
+      <DogsCount {...{ dogCount, total, isLoading }} />
     </div>
   </section>
 );

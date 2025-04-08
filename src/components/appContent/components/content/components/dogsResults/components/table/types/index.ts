@@ -1,5 +1,3 @@
-import { Dog } from "@/types";
+import { UseDogs } from "@/components/appContent/hooks/useDogs/types";
 
-export type TableProps = {
-  dogs: Dog[];
-};
+export type TableProps = Pick<UseDogs, "isLoading" | "dogs">;

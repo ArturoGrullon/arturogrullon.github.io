@@ -10,11 +10,12 @@ export const DogsResults = ({
   handleRemoveFilter,
   dogs,
   handleLoadMore,
+  isFetching,
   isLoading,
   hasNextPage,
 }: DogsResultsProps) => {
   const getMoreDogs = () => {
-    if (isLoading || !hasNextPage) return;
+    if (isFetching || !hasNextPage) return;
     handleLoadMore();
   };
 
@@ -29,8 +30,8 @@ export const DogsResults = ({
           handleRemoveFilter,
         }}
       />
-      <Table {...{ dogs }} />
-      <LoadingMoreDogs {...{ isLoading, loaderRef }} />
+      <Table {...{ dogs, isLoading }} />
+      <LoadingMoreDogs {...{ isFetching, loaderRef, isLoading }} />
     </section>
   );
 };

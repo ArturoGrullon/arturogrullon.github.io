@@ -5,6 +5,6 @@ export type FiltersPanelProps = Pick<
   ContentProps,
   "activeFilters" | "handleAddFilter"
 > &
-  Pick<UseDogs, "total"> & {
+  Pick<UseDogs, "total" | "isLoading"> & {
     dogCount: number;
   };

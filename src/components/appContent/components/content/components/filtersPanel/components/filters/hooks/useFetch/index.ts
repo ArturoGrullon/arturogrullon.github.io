@@ -12,7 +12,7 @@ export const useFetch = <TRespose = string[], TData = string[]>(
     mutate,
     isLoading,
   } = useSWR(
-   !resourcePath ? null : import.meta.env.VITE_BASE_URL + resourcePath,
+    !resourcePath ? null : import.meta.env.VITE_BASE_URL + resourcePath,
     (url: string) =>
       axios.request<TRespose>({ url, withCredentials: true, ...config }),
     config

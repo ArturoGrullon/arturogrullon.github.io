@@ -10,7 +10,7 @@ export const Content = ({
   name: userName,
   ...dogResultsProps
 }: ContentProps) => {
-  const { dogs, total } = dogResultsProps;
+  const { dogs, total, isLoading } = dogResultsProps;
   userGuide();
   return (
     <main className="flex gap-2rem">
@@ -21,9 +21,10 @@ export const Content = ({
             handleAddFilter,
             dogCount: dogs.length,
             total,
+            isLoading,
           }}
         />
-        <DogsResults {...{ ...dogResultsProps, activeFilters }} />
+        <DogsResults {...{ ...dogResultsProps, activeFilters, isLoading }} />
       </FavoriteDogsProvider>
     </main>
   );

@@ -6,7 +6,8 @@ export type UseDogs = Pick<
   "hasNextPage" | "handleLoadMore"
 > & {
   dogs: Dog[] | null;
-  isLoading: boolean;
+  isFetching: boolean;
   isValidating: boolean;
+  isLoading: boolean;
   total: number | undefined;
 };

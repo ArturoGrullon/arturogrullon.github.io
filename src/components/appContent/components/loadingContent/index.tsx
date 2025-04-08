@@ -15,7 +15,7 @@ export const LoadingContent = () => {
     <Card
       bg={getColor("primary")}
       borderColor={getColor("surface")}
-      className="h-[20rem] w-[30rem] items-center flex flex-col justify-center"
+      className="h-[20rem] w-[30rem] self-center items-center flex flex-col justify-center"
     >
       <img width={200} src={dog} alt="test" />
       <h4 className="text-2xl text-white">Fetching dogs...</h4>
